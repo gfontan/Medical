@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#775447</color>
+    <color name="colorPrimaryDark">#775447</color>
+    <color name="colorAccent">#775447</color>
+    <color name ="my_primary">#7FFFD4</color>
+    <color name ="my_secondary">#673AB7</color>
+
+    <!-- Settings Rate Us -->
+
+    <color name="dialog_color_1">#FDD736</color>
+    <color name="dialog_color_2">#3B5796</color>
+
+    <!-- Settings light mode -->
+
+    <color name="primary">#1B023B</color>
+    <color name="secondary">#FF03DAC5</color>
+
+    <!-- Settings dark mode -->
+
+    <color name="night_mode">#6124B1</color>
+    <color name="notifications">#13B2C3</color>
+    <color name="private_account">#E6A326</color>
+    <color name="securitiy">#D95F69</color>
+
+    <!-- Colores Recycler -->
+
+    <color name="pastel1">#FFB6C1</color>
+    <color name="pastel2">#FFD700</color>
+    <color name="pastel3">#FFA07A</color>
+    <color name="pastel4">#87CEEB</color>
+    <color name="pastel5">#98FB98</color>
+    <color name="pastel6">#DDA0DD</color>
+    <color name="pastel7">#FF6347</color>
+    <color name="pastel8">#20B2AA</color>
+    <color name="pastel9">#FF4500</color>
+    <color name="pastel10">#00FA9A</color>
+    <color name="pastel11">#9370DB</color>
+    <color name="pastel12">#FF8C00</color>
+    <color name="pastel13">#32CD32</color>
+    <color name="pastel14">#800080</color>
+    <color name="pastel15">#4682B4</color>
+
+
+</resources>

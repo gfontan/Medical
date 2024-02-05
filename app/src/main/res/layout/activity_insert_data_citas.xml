@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/my_primary"
+    tools:context=".InsertDataCitas">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/back_btn"
+        android:padding="14dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:src="@drawable/ecg_heart_fill0_wght400_grad0_opsz24" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginBottom="678dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:text="Informacion para la cita "
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="131dp"
+        android:layout_marginEnd="-1dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="DNI" />
+
+    <EditText
+        android:id="@+id/t2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="192dp"
+        android:layout_marginEnd="0dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Nombre" />
+
+    <EditText
+        android:id="@+id/t3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="249dp"
+        android:layout_marginEnd="2dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Apellidos" />
+
+    <EditText
+        android:id="@+id/t7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="507dp"
+        android:layout_marginEnd="1dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Datos extras a tener en cuenta" />
+
+    <EditText
+        android:id="@+id/t6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="441dp"
+        android:layout_marginEnd="1dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Disponibilidad horaria" />
+
+    <EditText
+        android:id="@+id/t5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="373dp"
+        android:layout_marginEnd="1dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Medico " />
+
+    <EditText
+        android:id="@+id/t4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="313dp"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Motivo de la cita" />
+
+    <Button
+        android:id="@+id/btnInsert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="109dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="72dp"
+        android:backgroundTint="#9B9B9B"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:onClick="addRecord"
+        android:text="Solicitar cita"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

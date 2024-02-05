@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/my_primary"
+    tools:context=".InsertData">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/back_btn"
+        android:padding="14dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:src="@drawable/ecg_heart_fill0_wght400_grad0_opsz24" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginBottom="633dp"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="Datos del medicamento"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="273dp"
+        android:layout_marginEnd="-3dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Codigo nacional" />
+
+    <EditText
+        android:id="@+id/t2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="348dp"
+        android:layout_marginEnd="-2dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Nombre del medicamento" />
+
+    <EditText
+        android:id="@+id/t3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="423dp"
+        android:layout_marginEnd="-2dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Cantidad de dosis" />
+
+    <EditText
+        android:id="@+id/t4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="507dp"
+        android:layout_marginEnd="1dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Sintomas que tratan" />
+
+    <Button
+        android:id="@+id/btnInsert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="117dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="70dp"
+        android:backgroundTint="#9B9B9B"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:onClick="addRecord"
+        android:text="Añadir"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

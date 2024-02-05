@@ -1,0 +1,73 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AplicacionFinal" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/my_primary</item>
+         <item name="colorPrimaryVariant">@color/my_primary</item>
+         <item name="colorOnPrimary">@color/my_primary</item>
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/my_secondary</item>
+        <item name="colorSecondaryVariant">@color/my_secondary</item>
+
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/my_primary</item>
+
+    </style>
+
+    <!-- Ubi Seguridad -->
+
+    <style name="NotificacionSwitchSecurity">
+
+        <item name="colorControlActivated">#804000</item>
+        <item name="colorSwitchThumbNormal">#FFFFFF</item>
+        <item name="android:colorForeground">#99FFFFFF</item>
+
+
+    </style>
+
+    <!-- Dark Mode / Night Mode -->
+    
+    <style name="NightModeSwitch" parent="Theme.AppCompat.Light">
+
+        <item name="colorControlActivated">@color/night_mode</item>
+        <item name="colorSwitchThumbNormal">#FFFFFF</item>
+        <item name="android:colorForeground">#99FFFFFF</item>
+
+    </style>
+
+    <!-- Rates Us -->
+
+    <style name="MyRatingBar" parent="Widget.AppCompat.RatingBar">
+
+        <!-- non selected star color -->
+
+        <item name="colorControlNormal">#4D000000</item>
+
+        <!-- selected star color -->
+
+        <item name="colorControlActivated">@color/dialog_color_1</item>
+
+    </style>
+
+    <!-- Notificaciones -->
+
+    <style name="NotificacionSwitch" parent="Theme.AppCompat.Light">
+
+        <item name="colorControlActivated">@color/notifications</item>
+        <item name="colorSwitchThumbNormal">#FFFFFF</item>
+        <item name="android:colorForeground">#99FFFFFF</item>
+
+    </style>
+
+    <!-- Cuenta Privada -->
+
+    <style name="PrivateAccountSwitch" parent="Theme.AppCompat.Light">
+
+        <item name="colorControlActivated">@color/private_account</item>
+        <item name="colorSwitchThumbNormal">#FFFFFF</item>
+        <item name="android:colorForeground">#99FFFFFF</item>
+
+    </style>
+
+    <style name="Theme.AplicacionFinal" parent="Base.Theme.AplicacionFinal" />
+</resources>
