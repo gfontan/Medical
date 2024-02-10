@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class ListElement implements Serializable {
 
     public String color;
+
     public String nombre;
     public String dosis;
     public String sintomas;

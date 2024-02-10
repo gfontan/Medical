@@ -33,6 +33,16 @@ public class Seguridad extends AppCompatActivity {
             }
         });
 
+        ImageView ContactosEmergencia = findViewById(R.id.contactos);
+        ContactosEmergencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Seguridad.this, contactosEmergencia.class);
+                startActivity(intent);
+            }
+        });
+
+
         ImageView ContactUs = findViewById(R.id.contactUs);
         ContactUs.setOnClickListener(new View.OnClickListener() {
             @Override

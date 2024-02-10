@@ -44,6 +44,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         holder.dosis.setText(String.valueOf(dosis.get(position)));
         holder.sintomas.setText(String.valueOf(sintomas.get(position)));
 
+
         // Setea el color del texto a negro
         holder.nombre.setTextColor(ContextCompat.getColor(context, android.R.color.black));
         holder.dosis.setTextColor(ContextCompat.getColor(context, android.R.color.black));
