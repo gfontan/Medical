@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import java.util.Set;
 
 public class contactosEmergencia extends Activity {
@@ -49,6 +50,58 @@ public class contactosEmergencia extends Activity {
                 finish(); // Salir de la actividad
             }
         });
+
+        // Agregar OnClickListener al TextView de contactos
+        selectedContactsTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String contactName = ((TextView) v).getText().toString().trim();
+                String phoneNumber = getContactPhoneNumber(contactName);
+                if (phoneNumber != null && !phoneNumber.isEmpty()) {
+                    realizarLlamada(phoneNumber);
+                } else {
+                    Toast.makeText(contactosEmergencia.this, "No se encontró el número de teléfono del contacto", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    // Función para obtener el número de teléfono de un contacto por su nombre
+    @SuppressLint("Range")
+    private String getContactPhoneNumber(String contactName) {
+        String phoneNumber = null;
+        Cursor cursor = null;
+        try {
+            cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                    null,
+                    ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " = ?",
+                    new String[]{contactName},
+                    null);
+
+            if (cursor != null && cursor.moveToFirst()) {
+                do {
+                    phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                    // Si se encontró un número de teléfono válido, sal del bucle
+                    if (phoneNumber != null && !phoneNumber.isEmpty()) {
+                        break;
+                    }
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return phoneNumber;
+    }
+
+    // Función para realizar la llamada
+    private void realizarLlamada(String phoneNumber) {
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:" + phoneNumber));
+        startActivity(intent);
     }
 
     private void pickContact() {
