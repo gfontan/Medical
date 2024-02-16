@@ -5,11 +5,9 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 
 public class CitasList extends AppCompatActivity {
@@ -37,16 +35,26 @@ public class CitasList extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayData();
 
+        // Configuración del OnClickListener en el adaptador
+        adapter.setOnItemClickListener(new ListAdapterCitas.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                // Abre la nueva actividad cuando se hace clic en un elemento del RecyclerView
+                Intent intent = new Intent(CitasList.this, DetalleCita.class);
+                // Puedes pasar datos adicionales a la nueva actividad si es necesario
+                intent.putExtra("DNI", dniList.get(position));
+                startActivity(intent);
+            }
+        });
+
         ImageView btnbackpage = findViewById(R.id.back);
         btnbackpage.setOnClickListener(v -> {
             Intent intent = new Intent(CitasList.this, SegundaPagina.class);
             startActivity(intent);
         });
-
     }
 
     private void displayData() {
-
         Cursor cursor = db.getdata();
 
         if(cursor.getCount() == 0) {
@@ -67,5 +75,4 @@ public class CitasList extends AppCompatActivity {
         // Notifica al adaptador sobre los cambios en los datos
         adapter.notifyDataSetChanged();
     }
-
 }

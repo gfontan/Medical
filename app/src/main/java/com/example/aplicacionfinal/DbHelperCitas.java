@@ -1,3 +1,4 @@
+// DbHelperCitas.java
 package com.example.aplicacionfinal;
 
 import android.content.ContentValues;
@@ -16,7 +17,7 @@ public class DbHelperCitas extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String qyr = "CREATE TABLE tbl_citas (DNI INTEGER PRIMARY KEY, Nombre TEXT, Apellidos TEXT, Razon TEXT, Disponibilidad INTEGER, Medico TEXT, Historial TEXT)";
+        String qyr = "CREATE TABLE tbl_citas (DNI TEXT PRIMARY KEY, Nombre TEXT, Apellidos TEXT, Razon TEXT, Disponibilidad INTEGER, Medico TEXT, Historial TEXT)";
         db.execSQL(qyr);
     }
 
@@ -50,5 +51,22 @@ public class DbHelperCitas extends SQLiteOpenHelper {
     public Cursor getdata() {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT * FROM tbl_citas", null);
+    }
+
+    public Cursor getCitaByDNI(String dni) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.rawQuery("SELECT * FROM tbl_citas WHERE DNI=?", new String[]{dni});
+    }
+
+    public boolean eliminarCita(String dni) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("tbl_citas", "DNI=?", new String[]{dni}) > 0;
+    }
+
+    public boolean marcarComoPendiente(String dni) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("Disponibilidad", "Pendiente");
+        return db.update("tbl_citas", valores, "DNI=?", new String[]{dni}) > 0;
     }
 }

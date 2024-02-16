@@ -52,6 +52,13 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
+                <ImageView
+                    android:id="@+id/imageViewClock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/relojcitas"
+                    android:visibility="gone" />
+
                 <TextView
                     android:id="@+id/dni"
                     android:layout_width="wrap_content"
@@ -59,6 +66,8 @@
                     android:fontFamily="@font/montserrat"
                     android:text="DNI: "
                     android:textSize="15sp" />
+
+
 
                 <TextView
                     android:id="@+id/nombreCompleto"

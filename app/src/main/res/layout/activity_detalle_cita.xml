@@ -1,0 +1,117 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Título de la actividad -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detalles de la Cita"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"/>
+
+    <!-- Nombre -->
+    <TextView
+        android:id="@+id/textNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre:"
+        android:textSize="18sp"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Apellidos -->
+    <TextView
+        android:id="@+id/textApellidos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apellidos:"
+        android:textSize="18sp"
+        android:layout_below="@id/textNombre"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Razón -->
+    <TextView
+        android:id="@+id/textRazon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Razón:"
+        android:textSize="18sp"
+        android:layout_below="@id/textApellidos"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Disponibilidad -->
+    <TextView
+        android:id="@+id/textDisponibilidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Disponibilidad:"
+        android:textSize="18sp"
+        android:layout_below="@id/textRazon"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Médico -->
+    <TextView
+        android:id="@+id/textMedico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Médico:"
+        android:textSize="18sp"
+        android:layout_below="@id/textDisponibilidad"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Historial -->
+    <TextView
+        android:id="@+id/textHistorial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Historial:"
+        android:textSize="18sp"
+        android:layout_below="@id/textMedico"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Checkbox Marcar como pendiente -->
+    <CheckBox
+        android:id="@+id/checkbox_pendiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textHistorial"
+        android:text="Marcar como pendiente"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_alignParentEnd="true"/>
+
+    <!-- Checkbox Eliminar cita -->
+    <CheckBox
+        android:id="@+id/checkbox_eliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkbox_pendiente"
+        android:text="Eliminar cita"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_alignParentEnd="true"/>
+
+    <!-- Botón de Confirmación -->
+    <Button
+        android:id="@+id/button_confirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirmar"
+        android:textColor="@color/white"
+        android:layout_below="@id/checkbox_eliminar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>
