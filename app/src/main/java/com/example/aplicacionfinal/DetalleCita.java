@@ -1,5 +1,6 @@
 package com.example.aplicacionfinal;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -30,31 +31,13 @@ public class DetalleCita extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             dni = extras.getString("DNI");
-            String nombre = extras.getString("Nombre");
-            String apellidos = extras.getString("Apellidos");
-            String razon = extras.getString("Razon");
-            String disponibilidad = extras.getString("Disponibilidad");
-            String medico = extras.getString("Medico");
-            String historial = extras.getString("Historial");
-
 
             textViewNombre = findViewById(R.id.textNombre);
-            textViewNombre.setText(nombre);
-
             textViewApellidos = findViewById(R.id.textApellidos);
-            textViewApellidos.setText(apellidos);
-
             textViewRazon = findViewById(R.id.textRazon);
-            textViewRazon.setText(razon);
-
             textViewDisponibilidad = findViewById(R.id.textDisponibilidad);
-            textViewDisponibilidad.setText(disponibilidad);
-
             textViewMedico = findViewById(R.id.textMedico);
-            textViewMedico.setText(medico);
-
             textViewHistorial = findViewById(R.id.textHistorial);
-            textViewHistorial.setText(historial);
 
         }
 
@@ -89,7 +72,32 @@ public class DetalleCita extends AppCompatActivity {
     }
 
     private void llenarDatosCita() {
-        // Lógica para llenar los datos de la cita en los TextViews
+        // Obtener los detalles de la cita del paciente usando el DNI
+        Cursor cursor = dbHelper.getCitaByDNI(dni);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            // Obtener los datos de la cita del cursor
+            @SuppressLint("Range") String nombre = cursor.getString(cursor.getColumnIndex("Nombre"));
+            @SuppressLint("Range") String apellidos = cursor.getString(cursor.getColumnIndex("Apellidos"));
+            @SuppressLint("Range") String razon = cursor.getString(cursor.getColumnIndex("Razon"));
+            @SuppressLint("Range") String disponibilidad = cursor.getString(cursor.getColumnIndex("Disponibilidad"));
+            @SuppressLint("Range") String medico = cursor.getString(cursor.getColumnIndex("Medico"));
+            @SuppressLint("Range") String historial = cursor.getString(cursor.getColumnIndex("Historial"));
+
+            // Mostrar los datos en los TextView correspondientes
+            textViewNombre.setText(nombre);
+            textViewApellidos.setText(apellidos);
+            textViewRazon.setText(razon);
+            textViewDisponibilidad.setText(disponibilidad);
+            textViewMedico.setText(medico);
+            textViewHistorial.setText(historial);
+
+            // Cerrar el cursor después de usarlo para evitar posibles fugas de memoria
+            cursor.close();
+        } else {
+            // Si no se encontraron datos para el DNI proporcionado, mostrar un mensaje o tomar alguna acción apropiada
+            Toast.makeText(this, "No se encontraron detalles de la cita para el paciente", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
