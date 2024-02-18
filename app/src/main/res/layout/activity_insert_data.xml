@@ -80,9 +80,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="507dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="494dp"
+        android:layout_marginEnd="0dp"
         android:fontFamily="@font/montserrat"
         android:hint="Sintomas que tratan" />
 
@@ -94,7 +94,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="572dp"
+        android:layout_marginTop="567dp"
         android:layout_marginEnd="-1dp"
         android:fontFamily="@font/montserrat"
         android:hint="Prospecto" />
