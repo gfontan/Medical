@@ -37,7 +37,7 @@ public class Seguridad extends AppCompatActivity {
         ContactosEmergencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Seguridad.this, contactosEmergencia.class);
+                Intent intent = new Intent(Seguridad.this, ContactosEmergenciaActivity.class);
                 startActivity(intent);
             }
         });
