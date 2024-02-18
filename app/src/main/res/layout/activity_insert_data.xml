@@ -86,6 +86,19 @@
         android:fontFamily="@font/montserrat"
         android:hint="Sintomas que tratan" />
 
+    <EditText
+        android:id="@+id/t5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="572dp"
+        android:layout_marginEnd="-1dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Prospecto" />
+
     <Button
         android:id="@+id/btnInsert"
         android:layout_width="wrap_content"
@@ -93,14 +106,17 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="117dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="25dp"
         android:backgroundTint="#9B9B9B"
         android:fontFamily="@font/montserrat"
         android:gravity="center"
         android:onClick="addRecord"
         android:text="Añadir"
         android:textColor="@color/white" />
+
+
+
 
 </RelativeLayout>
