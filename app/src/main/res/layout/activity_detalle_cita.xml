@@ -3,91 +3,148 @@
     android:layout_height="match_parent">
 
     <!-- Título de la actividad -->
+
+
+
+
+
+
+    <!-- Nombre -->
+
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Detalles de la Cita"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:padding="16dp"
-        android:background="@color/colorPrimaryDark"
-        android:textColor="@android:color/white"/>
+        android:fontFamily="@font/montserrat"
+        android:text="Detalles de la Cita"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-    <!-- Nombre -->
+    <!-- Apellidos -->
+
+    <!-- Razón -->
+
+    <!-- Disponibilidad -->
+
+    <!-- Médico -->
+
+    <!-- Historial -->
+
+    <!-- Flecha -->
+
+    <!-- Checkbox Marcar como pendiente -->
+
+    <ImageButton
+        android:id="@+id/atrasCita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="4dp"
+        android:layout_alignLeft="@id/textViewTitle"
+        android:layout_marginEnd="359dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:src="@drawable/back_btn" />
+
+    <TextView
+        android:id="@+id/textDNI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
+        android:text="DNI:"
+        android:textSize="18sp" />
+
     <TextView
         android:id="@+id/textNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre:"
-        android:textSize="18sp"
         android:layout_below="@id/textViewTitle"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="43dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Nombre:"
+        android:textSize="18sp" />
 
-    <!-- Apellidos -->
     <TextView
         android:id="@+id/textApellidos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Apellidos:"
-        android:textSize="18sp"
         android:layout_below="@id/textNombre"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Apellidos:"
+        android:textSize="18sp" />
 
-    <!-- Razón -->
     <TextView
         android:id="@+id/textRazon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Razón:"
-        android:textSize="18sp"
         android:layout_below="@id/textApellidos"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Razón:"
+        android:textSize="18sp" />
 
-    <!-- Disponibilidad -->
     <TextView
         android:id="@+id/textDisponibilidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Disponibilidad:"
+        android:text="Disponibilidad: "
         android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:layout_below="@id/textRazon"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"/>
 
-    <!-- Médico -->
     <TextView
-        android:id="@+id/textMedico"
+        android:id="@+id/textCita"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Médico:"
+        android:text="Cita: "
+        android:fontFamily="@font/montserrat"
         android:textSize="18sp"
         android:layout_below="@id/textDisponibilidad"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"/>
 
-    <!-- Historial -->
+    <TextView
+        android:id="@+id/textMedico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medico: "
+        android:fontFamily="@font/montserrat"
+        android:textSize="18sp"
+        android:layout_below="@id/textCita"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"/>
+
     <TextView
         android:id="@+id/textHistorial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Historial:"
-        android:textSize="18sp"
         android:layout_below="@id/textMedico"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="7dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Historial:"
+        android:textSize="18sp" />
 
-    <!-- Checkbox Marcar como pendiente -->
     <CheckBox
         android:id="@+id/checkbox_pendiente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textHistorial"
         android:text="Marcar como pendiente"
+        android:fontFamily="@font/montserrat"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_alignParentEnd="true"/>
@@ -99,19 +156,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/checkbox_pendiente"
         android:text="Eliminar cita"
+        android:fontFamily="@font/montserrat"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_alignParentEnd="true"/>
 
     <!-- Botón de Confirmación -->
-    <Button
+
+    <!--  <Button
         android:id="@+id/button_confirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirmar"
+        android:fontFamily="@font/montserrat"
         android:textColor="@color/white"
         android:layout_below="@id/checkbox_eliminar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"/> -->
 
 </RelativeLayout>

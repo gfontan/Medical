@@ -17,7 +17,7 @@ public class DbHelperCitas extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String qyr = "CREATE TABLE tbl_citas (DNI TEXT PRIMARY KEY, Nombre TEXT, Apellidos TEXT, Razon TEXT, Disponibilidad INTEGER, Medico TEXT, Historial TEXT)";
+        String qyr = "CREATE TABLE tbl_citas (DNI TEXT PRIMARY KEY, Nombre TEXT, Apellidos TEXT, Razon TEXT, Disponibilidad INTEGER, Cita TEXT, Medico TEXT, Historial TEXT)";
         db.execSQL(qyr);
     }
 
@@ -27,7 +27,7 @@ public class DbHelperCitas extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Boolean insertUserData(String DNI, String Nombre, String Apellidos, String Razon, String Disponibilidad, String Medico, String Historial) {
+    public Boolean insertUserData(String DNI, String Nombre, String Apellidos, String Razon, String Disponibilidad, String Cita, String Medico, String Historial) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -36,6 +36,7 @@ public class DbHelperCitas extends SQLiteOpenHelper {
         cv.put("Apellidos", Apellidos);
         cv.put("Razon", Razon);
         cv.put("Disponibilidad", Disponibilidad);
+        cv.put("Cita", Cita);
         cv.put("Medico", Medico);
         cv.put("Historial", Historial);
 
@@ -66,7 +67,7 @@ public class DbHelperCitas extends SQLiteOpenHelper {
     public boolean marcarComoPendiente(String dni) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues valores = new ContentValues();
-        valores.put("Disponibilidad", "Pendiente");
+        valores.put("Cita", "Pendiente");
         return db.update("tbl_citas", valores, "DNI=?", new String[]{dni}) > 0;
     }
 }

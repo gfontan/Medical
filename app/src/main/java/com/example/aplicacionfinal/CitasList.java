@@ -13,8 +13,9 @@ import java.util.ArrayList;
 public class CitasList extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    ArrayList<String> dniList, nombreList, apellidosList, razonList, disponibilidadList, medicoList, historialList;
+    ArrayList<String> dniList, nombreList, apellidosList, razonList, disponibilidadList, citasList, medicoList, historialList;
     DbHelperCitas db;
+
     ListAdapterCitas adapter;
 
     @Override
@@ -27,10 +28,11 @@ public class CitasList extends AppCompatActivity {
         apellidosList = new ArrayList<>();
         razonList = new ArrayList<>();
         disponibilidadList = new ArrayList<>();
+        citasList = new ArrayList<>();
         medicoList = new ArrayList<>();
         historialList = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerview);
-        adapter = new ListAdapterCitas(this, dniList, nombreList, apellidosList, razonList, disponibilidadList, medicoList, historialList);
+        adapter = new ListAdapterCitas(this, dniList, nombreList, apellidosList, razonList, disponibilidadList, citasList, medicoList, historialList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displayData();
@@ -68,8 +70,9 @@ public class CitasList extends AppCompatActivity {
             apellidosList.add(cursor.getString(2));
             razonList.add(cursor.getString(3));
             disponibilidadList.add(cursor.getString(4));
-            medicoList.add(cursor.getString(5));
-            historialList.add(cursor.getString(6));
+            citasList.add(cursor.getString(5));
+            medicoList.add(cursor.getString(6));
+            historialList.add(cursor.getString(7));
         }
 
         // Notifica al adaptador sobre los cambios en los datos

@@ -102,6 +102,14 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/cita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Cita: "
+                    android:textSize="15sp" />
+
+                <TextView
                     android:id="@+id/medico"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -15,7 +15,8 @@ import java.util.ArrayList;
 public class ListAdapterCitas extends RecyclerView.Adapter<ListAdapterCitas.ViewHolder> {
 
     private Context context;
-    private ArrayList<String> dniList, nombreList, apellidosList, razonList, disponibilidadList, medicoList, historialList;
+    private ArrayList<String> dniList, nombreList, apellidosList, razonList, disponibilidadList, citaList, medicoList, historialList;
+
 
     // Interfaz para manejar clics en elementos del RecyclerView
     public interface OnItemClickListener {
@@ -30,7 +31,7 @@ public class ListAdapterCitas extends RecyclerView.Adapter<ListAdapterCitas.View
     }
 
     public ListAdapterCitas(Context context, ArrayList<String> dniList, ArrayList<String> nombreList, ArrayList<String> apellidosList,
-                            ArrayList<String> razonList, ArrayList<String> disponibilidadList, ArrayList<String> medicoList,
+                            ArrayList<String> razonList, ArrayList<String> disponibilidadList, ArrayList<String> citaList, ArrayList <String> medicoList,
                             ArrayList<String> historialList) {
         this.context = context;
         this.dniList = dniList;
@@ -38,6 +39,7 @@ public class ListAdapterCitas extends RecyclerView.Adapter<ListAdapterCitas.View
         this.apellidosList = apellidosList;
         this.razonList = razonList;
         this.disponibilidadList = disponibilidadList;
+        this.citaList = citaList;
         this.medicoList = medicoList;
         this.historialList = historialList;
     }
@@ -51,27 +53,38 @@ public class ListAdapterCitas extends RecyclerView.Adapter<ListAdapterCitas.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.textDNI.setText(dniList.get(position));
-        holder.textNombre.setText(nombreList.get(position));
-        holder.textApellidos.setText(apellidosList.get(position));
-        holder.textRazon.setText(razonList.get(position));
-        holder.textDisponibilidad.setText(disponibilidadList.get(position));
-        holder.textMedico.setText(medicoList.get(position));
-        holder.textHistorial.setText(historialList.get(position));
+        holder.textDNI.setText("DNI: " + dniList.get(position));
+        holder.textNombre.setText("Nombre: " + nombreList.get(position));
+        holder.textApellidos.setText("Apellidos: " + apellidosList.get(position));
+        holder.textRazon.setText("Razón: " + razonList.get(position));
+        holder.textDisponibilidad.setText("Disponibilidad: " + disponibilidadList.get(position));
+        if (holder.textCita != null) {
+            String cita = citaList.get(position);
+            holder.textCita.setText("Cita: " + (cita != null ? cita : "")); // Si cita es nulo, establece el texto como cadena vacía
+        }
 
-        String disponibilidad = disponibilidadList.get(position);
-        if ("Pendiente".equals(disponibilidad)) {
+        holder.textMedico.setText("Medico: " + medicoList.get(position));
+        holder.textHistorial.setText("Historial: " + historialList.get(position));
+
+        String cita = citaList.get(position);
+        if ("Pendiente".equals(cita)) {
             holder.imageViewClock.setVisibility(View.VISIBLE);
         } else {
             holder.imageViewClock.setVisibility(View.GONE);
         }
 
+        cita = citaList.get(position);
+        if ("Pendiente".equals(cita)) {
+            holder.imageViewClock.setVisibility(View.VISIBLE);
+        } else {
+            holder.imageViewClock.setVisibility(View.GONE);
+        }
         // Configurar el listener para marcar como pendiente
         holder.imageViewClock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Cambiar el estado de disponibilidad a "Pendiente"
-                disponibilidadList.set(position, "Pendiente");
+                citaList.set(position, "Pendiente");
                 // Notificar al adaptador sobre el cambio en los datos
                 notifyDataSetChanged();
                 // Aquí puedes realizar cualquier otra acción necesaria, como guardar el estado en la base de datos, etc.
@@ -94,7 +107,7 @@ public class ListAdapterCitas extends RecyclerView.Adapter<ListAdapterCitas.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textDNI, textNombre, textApellidos, textRazon, textDisponibilidad, textMedico, textHistorial;
+        TextView textDNI, textNombre, textApellidos, textRazon, textDisponibilidad, textCita, textMedico, textHistorial;
 
         ImageView imageViewClock;
         public ViewHolder(@NonNull View itemView) {

@@ -40,11 +40,12 @@ public class InsertDataCitas extends AppCompatActivity {
                 String Nombre = t2.getText().toString();
                 String  Apellidos = t3.getText().toString();
                 String Razon = t4.getText().toString();
-                String Disponibilidad = t5.getText().toString();
-                String Medico = t6.getText().toString();
+                String Disponibilidad = t6.getText().toString();
+                String Medico = t5.getText().toString();
                 String Historial = t7.getText().toString();
+                String Cita = " ";
 
-                Boolean checkinsertdata = db.insertUserData(DNI, Nombre, Apellidos, Razon, Disponibilidad, Medico, Historial);
+                Boolean checkinsertdata = db.insertUserData(DNI, Nombre, Apellidos, Razon, Disponibilidad, Cita, Medico, Historial);
                 if(checkinsertdata == true){
                     Toast.makeText(InsertDataCitas.this, "Datos insertados", Toast.LENGTH_SHORT).show();
                 }else {
