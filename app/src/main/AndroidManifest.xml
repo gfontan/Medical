@@ -34,7 +34,7 @@
             android:name=".DetalleCita"
             android:exported="false" />
         <activity
-            android:name=".contactosEmergencia"
+            android:name=".ContactosEmergenciaActivity"
             android:exported="false" />
         <activity
             android:name=".CitasList"
