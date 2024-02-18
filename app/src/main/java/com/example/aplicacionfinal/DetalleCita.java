@@ -87,7 +87,7 @@ public class DetalleCita extends AppCompatActivity {
             @SuppressLint("Range") String razon = cursor.getString(cursor.getColumnIndex("Razon"));
             @SuppressLint("Range") String disponibilidad = cursor.getString(cursor.getColumnIndex("Disponibilidad"));
             @SuppressLint("Range") String cita = cursor.getString(cursor.getColumnIndex("Cita"));
-            @SuppressLint("Range") String medico = cursor.getString(cursor.getColumnIndex("Medico"));
+            @SuppressLint("Range") String medico = cursor.getString(cursor.getColumnIndex("Médico"));
             @SuppressLint("Range") String historial = cursor.getString(cursor.getColumnIndex("Historial"));
 
             // Mostrar los datos en los TextView correspondientes
@@ -98,7 +98,7 @@ public class DetalleCita extends AppCompatActivity {
             textViewRazon.setText("-Razon: " + razon);
             textViewDisponibilidad.setText("-Disponibilidad: " + disponibilidad);
             textViewCita.setText("-Cita: "  + cita);
-            textViewMedico.setText("-Medico: " + medico);
+            textViewMedico.setText("-Médico: " + medico);
             textViewHistorial.setText("-Historial: " + historial);
 
             // Cerrar el cursor después de usarlo para evitar posibles fugas de memoria

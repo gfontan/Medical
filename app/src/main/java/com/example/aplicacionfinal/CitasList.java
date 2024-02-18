@@ -15,7 +15,6 @@ public class CitasList extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<String> dniList, nombreList, apellidosList, razonList, disponibilidadList, citasList, medicoList, historialList;
     DbHelperCitas db;
-
     ListAdapterCitas adapter;
 
     @Override

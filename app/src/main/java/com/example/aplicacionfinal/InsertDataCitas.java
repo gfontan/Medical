@@ -48,11 +48,22 @@ public class InsertDataCitas extends AppCompatActivity {
                 Boolean checkinsertdata = db.insertUserData(DNI, Nombre, Apellidos, Razon, Disponibilidad, Cita, Medico, Historial);
                 if(checkinsertdata == true){
                     Toast.makeText(InsertDataCitas.this, "Datos insertados", Toast.LENGTH_SHORT).show();
+
+                    t1.setText("");
+                    t2.setText("");
+                    t3.setText("");
+                    t4.setText("");
+                    t5.setText("");
+                    t6.setText("");
+                    t7.setText("");
+
                 }else {
                     Toast.makeText(InsertDataCitas.this, "Error", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+
 
 
         ImageView btnbackpage = findViewById(R.id.back);
