@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/my_primary"
+    android:background="@color/colorPrimaryDark"
     tools:context=".InsertDataCitas">
 
     <ImageView
@@ -32,7 +32,7 @@
         android:fontFamily="@font/montserrat"
         android:gravity="center"
         android:text="Informacion para la cita "
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
     <EditText
@@ -43,8 +43,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="131dp"
+        android:layout_marginTop="159dp"
         android:layout_marginEnd="-1dp"
+        android:textColor="@color/white"
         android:fontFamily="@font/montserrat"
         android:hint="DNI" />
 
@@ -56,8 +57,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="-1dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="216dp"
         android:layout_marginEnd="0dp"
+        android:textColor="@color/white"
         android:fontFamily="@font/montserrat"
         android:hint="Nombre" />
 
@@ -68,24 +70,40 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginTop="249dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="273dp"
+        android:layout_marginEnd="0dp"
+        android:textColor="@color/white"
         android:fontFamily="@font/montserrat"
         android:hint="Apellidos" />
 
     <EditText
-        android:id="@+id/t7"
+        android:id="@+id/t4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="507dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="332dp"
+        android:layout_marginEnd="0dp"
+        android:textColor="@color/white"
         android:fontFamily="@font/montserrat"
-        android:hint="Datos extras a tener en cuenta" />
+        android:hint="Motivo de la cita" />
+
+    <EditText
+        android:id="@+id/t5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="3dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="393dp"
+        android:layout_marginEnd="-2dp"
+        android:fontFamily="@font/montserrat"
+        android:hint="Médico " />
 
     <EditText
         android:id="@+id/t6"
@@ -95,36 +113,42 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="441dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="458dp"
         android:layout_marginEnd="1dp"
+        android:focusable="false"
+        android:clickable="true"
         android:fontFamily="@font/montserrat"
         android:hint="Disponibilidad horaria" />
 
     <EditText
-        android:id="@+id/t5"
+        android:id="@+id/t7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="523dp"
+        android:layout_marginEnd="2dp"
+        android:focusable="false"
+        android:fontFamily="@font/montserrat"
+        android:hint="Seleccionar fecha"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/t8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="373dp"
+        android:layout_marginTop="596dp"
         android:layout_marginEnd="1dp"
+        android:textColor="@color/white"
         android:fontFamily="@font/montserrat"
-        android:hint="Médico " />
-
-    <EditText
-        android:id="@+id/t4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginTop="313dp"
-        android:layout_marginEnd="4dp"
-        android:fontFamily="@font/montserrat"
-        android:hint="Motivo de la cita" />
+        android:hint="Datos extras a tener en cuenta" />
 
     <Button
         android:id="@+id/btnInsert"
@@ -135,7 +159,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="109dp"
         android:layout_marginEnd="124dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="19dp"
         android:backgroundTint="#9B9B9B"
         android:fontFamily="@font/montserrat"
         android:gravity="center"

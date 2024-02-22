@@ -21,7 +21,7 @@ public class DetalleCita extends AppCompatActivity {
     private DbHelperCitas dbHelper;
     private ListAdapterCitas adapter;
     private String dni;
-    private TextView textViewNombre, textViewApellidos, textViewRazon, textViewDisponibilidad, textViewCita, textViewMedico, textViewHistorial, textViewDNI;
+    private TextView textViewNombre, textViewApellidos, textViewRazon, textViewDisponibilidad, textViewFecha, textViewCita, textViewMedico, textViewHistorial, textViewDNI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,7 @@ public class DetalleCita extends AppCompatActivity {
             textViewApellidos = findViewById(R.id.textApellidos);
             textViewRazon = findViewById(R.id.textRazon);
             textViewDisponibilidad = findViewById(R.id.textDisponibilidad);
+            textViewFecha = findViewById(R.id.textFecha);
             textViewCita = findViewById(R.id.textCita);
             textViewMedico = findViewById(R.id.textMedico);
             textViewHistorial = findViewById(R.id.textHistorial);
@@ -86,6 +87,7 @@ public class DetalleCita extends AppCompatActivity {
             @SuppressLint("Range") String apellidos = cursor.getString(cursor.getColumnIndex("Apellidos"));
             @SuppressLint("Range") String razon = cursor.getString(cursor.getColumnIndex("Razon"));
             @SuppressLint("Range") String disponibilidad = cursor.getString(cursor.getColumnIndex("Disponibilidad"));
+            @SuppressLint("Range") String fecha = cursor.getString(cursor.getColumnIndex("Fecha"));
             @SuppressLint("Range") String cita = cursor.getString(cursor.getColumnIndex("Cita"));
             @SuppressLint("Range") String medico = cursor.getString(cursor.getColumnIndex("Médico"));
             @SuppressLint("Range") String historial = cursor.getString(cursor.getColumnIndex("Historial"));
@@ -97,6 +99,7 @@ public class DetalleCita extends AppCompatActivity {
             textViewApellidos.setText("-Apellidos: " + apellidos);
             textViewRazon.setText("-Razon: " + razon);
             textViewDisponibilidad.setText("-Disponibilidad: " + disponibilidad);
+            textViewFecha.setText("-Fecha: " + fecha);
             textViewCita.setText("-Cita: "  + cita);
             textViewMedico.setText("-Médico: " + medico);
             textViewHistorial.setText("-Historial: " + historial);

@@ -17,7 +17,7 @@ public class DbHelperCitas extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String qyr = "CREATE TABLE tbl_citas (DNI TEXT PRIMARY KEY, Nombre TEXT, Apellidos TEXT, Razon TEXT, Disponibilidad INTEGER, Cita TEXT, Médico TEXT, Historial TEXT)";
+        String qyr = "CREATE TABLE tbl_citas (DNI TEXT PRIMARY KEY, Nombre TEXT, Apellidos TEXT, Razon TEXT, Disponibilidad INTEGER, Fecha TEXT, Cita TEXT, Médico TEXT, Historial TEXT)";
         db.execSQL(qyr);
     }
 
@@ -27,7 +27,7 @@ public class DbHelperCitas extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Boolean insertUserData(String DNI, String Nombre, String Apellidos, String Razon, String Disponibilidad, String Cita, String Médico, String Historial) {
+    public Boolean insertUserData(String DNI, String Nombre, String Apellidos, String Razon, String Disponibilidad, String Fecha, String Cita, String Médico, String Historial) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -36,6 +36,7 @@ public class DbHelperCitas extends SQLiteOpenHelper {
         cv.put("Apellidos", Apellidos);
         cv.put("Razon", Razon);
         cv.put("Disponibilidad", Disponibilidad);
+        cv.put("Fecha", Fecha);
         cv.put("Cita", Cita);
         cv.put("Médico", Médico);
         cv.put("Historial", Historial);
