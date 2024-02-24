@@ -112,14 +112,14 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:textColor="@color/white"
-        android:layout_marginTop="458dp"
-        android:layout_marginEnd="1dp"
-        android:focusable="false"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="455dp"
+        android:layout_marginEnd="-1dp"
         android:clickable="true"
+        android:focusable="false"
         android:fontFamily="@font/montserrat"
-        android:hint="Disponibilidad horaria" />
+        android:hint="Hora"
+        android:textColor="@color/white" />
 
     <EditText
         android:id="@+id/t7"

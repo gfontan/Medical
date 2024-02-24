@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:background="@drawable/background_card"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/background_card">
+
+        <TextView
+            android:id="@+id/textViewNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌺 Nombre: Max GoodWin"
+            android:fontFamily="@font/montserrat"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/textViewEdad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎂 Edad: 35 años"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/textViewNumeroSeguro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🚑 Número de Seguro: 123456789"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/textViewGrupoSanguineo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="💉 Grupo Sanguíneo: O+"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/textViewAlergias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="🌼 Alergias: N/A"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/textViewMedicamentos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="💊 Medicamentos: Paracetamol"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/textViewContactoEmergencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🆘 Contacto de Emergencia: 112"
+            android:fontFamily="@font/montserrat"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

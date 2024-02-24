@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Medical</string>
+    <string name="texto_predeterminado_medicos">Seleccionar médico</string>
 </resources>

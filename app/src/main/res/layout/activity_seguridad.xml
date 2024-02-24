@@ -45,7 +45,9 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/img_1"/>
+                android:src="@drawable/emergency_fill0_wght400_grad0_opsz24"
+                android:background="@drawable/circle_background"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:fontFamily="@font/montserrat"
@@ -53,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:text="Laura Da Silva"
+                android:text="Max Goodwin"
                 android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold"/>
@@ -106,6 +108,7 @@
 
 
                     <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/SOS"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"

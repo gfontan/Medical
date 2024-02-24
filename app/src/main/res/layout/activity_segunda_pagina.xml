@@ -18,22 +18,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp">
 
-            <ImageButton
-            android:id="@+id/Ajustes"
-            android:layout_width="53dp"
-            android:layout_height="44dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/img_1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.955"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                <ImageButton
+                    android:id="@+id/Ajustes"
+                    android:layout_width="57dp"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/manage_accounts_fill0_wght400_grad0_opsz24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.955"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Laura Da Silva"
+                android:text="Max Goodwin"
                 android:layout_marginRight="10dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:text="Doctor/a"
+                android:text="Director medico"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:fontFamily="@font/montserrat"
