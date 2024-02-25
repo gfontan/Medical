@@ -21,21 +21,21 @@ public class TarjetaSanitaria extends AppCompatActivity {
         TextView textViewContactoEmergencia = findViewById(R.id.textViewContactoEmergencia);
 
         // Datos de ejemplo de la tarjeta sanitaria
-        String nombre = "Juan Pérez";
+        String nombre = "Max GoodWin";
         int edad = 35;
         String numeroSeguro = "123456789";
         String grupoSanguineo = "O+";
         String alergias = "N/A";
         String medicamentos = "Paracetamol";
-        String contactoEmergencia = "911";
+        String contactoEmergencia = "112";
 
         // Establece los datos en los TextViews
-        textViewNombre.setText("Nombre: " + nombre);
-        textViewEdad.setText("Edad: " + edad + " años");
-        textViewNumeroSeguro.setText("Número de Seguro: " + numeroSeguro);
-        textViewGrupoSanguineo.setText("Grupo Sanguíneo: " + grupoSanguineo);
-        textViewAlergias.setText("Alergias: " + alergias);
-        textViewMedicamentos.setText("Medicamentos: " + medicamentos);
-        textViewContactoEmergencia.setText("Contacto de Emergencia: " + contactoEmergencia);
+        textViewNombre.setText("🌺 Nombre: " + nombre);
+        textViewEdad.setText("\uD83C\uDF88 Edad: " + edad + " años");
+        textViewNumeroSeguro.setText("🚑 Número de Seguro: " + numeroSeguro);
+        textViewGrupoSanguineo.setText("💉 Grupo Sanguíneo: " + grupoSanguineo);
+        textViewAlergias.setText("🌼 Alergias: " + alergias);
+        textViewMedicamentos.setText("💊 Medicamentos: " + medicamentos);
+        textViewContactoEmergencia.setText("🆘Contacto de Emergencia: " + contactoEmergencia);
     }
 }

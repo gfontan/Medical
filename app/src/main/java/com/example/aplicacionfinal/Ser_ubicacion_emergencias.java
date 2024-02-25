@@ -8,8 +8,10 @@ import com.google.android.gms.location.LocationRequest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 import com.google.android.gms.common.api.ApiException;
@@ -24,6 +26,8 @@ import com.google.android.gms.tasks.Task;
 public class Ser_ubicacion_emergencias extends AppCompatActivity {
 
     private SwitchCompat switchCompat;
+
+    private SharedPreferences sharedPreferences;
     private LocationRequest locationRequest;
     public static final int REQUEST_CHECK_SETTING = 1001;
 
@@ -32,6 +36,8 @@ public class Ser_ubicacion_emergencias extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ser_ubicacion_emergencias);
 
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         locationRequest.setInterval(5000);
@@ -39,6 +45,18 @@ public class Ser_ubicacion_emergencias extends AppCompatActivity {
 
 
         switchCompat = findViewById(R.id.SwitchCompatUbicacion);
+        switchCompat.setChecked(sharedPreferences.getBoolean("Ubicacion", false));
+
+        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Guarda el estado actual del switch en SharedPreferences
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("Ubicacion", isChecked);
+                editor.apply();
+            }
+        });
+
         switchCompat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

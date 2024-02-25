@@ -17,7 +17,7 @@ public class DbHelperCitas extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String qyr = "CREATE TABLE tbl_citas (DNI TEXT PRIMARY KEY, Nombre TEXT, Apellidos TEXT, Razon TEXT, Disponibilidad INTEGER, Fecha TEXT, Cita TEXT, Médico TEXT, Historial TEXT)";
+        String qyr = "CREATE TABLE tbl_citas (DNI TEXT PRIMARY KEY, Nombre TEXT, Apellidos TEXT, Razon TEXT, Disponibilidad INTEGER, Fecha TEXT, Cita TEXT, Médico TEXT, Historial TEXT, HorasOcupadas TEXT)";
         db.execSQL(qyr);
     }
 
@@ -27,7 +27,7 @@ public class DbHelperCitas extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Boolean insertUserData(String DNI, String Nombre, String Apellidos, String Razon, String Disponibilidad, String Fecha, String Cita, String Médico, String Historial) {
+    public Boolean insertUserData(String DNI, String Nombre, String Apellidos, String Razon, String Disponibilidad, String Fecha, String Cita, String Médico, String Historial, String HorasOcupadas) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -40,14 +40,46 @@ public class DbHelperCitas extends SQLiteOpenHelper {
         cv.put("Cita", Cita);
         cv.put("Médico", Médico);
         cv.put("Historial", Historial);
+        cv.put("HorasOcupadas", HorasOcupadas);
 
         try {
-            long res = db.insertOrThrow("tbl_citas", null, cv);
-            return res != -1;
+            // Verificar si la hora seleccionada ya está ocupada para el día correspondiente
+            Cursor cursor = db.rawQuery("SELECT * FROM tbl_citas WHERE Fecha=? AND HorasOcupadas=?", new String[]{Fecha, HorasOcupadas});
+            if (cursor != null && cursor.getCount() > 0) {
+                // La hora ya está ocupada, no permitir la inserción y mostrar un mensaje de error
+                cursor.close();
+                return false;
+            } else {
+                // La hora está disponible, proceder con la inserción normalmente
+                long res = db.insertOrThrow("tbl_citas", null, cv);
+                return res != -1;
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public boolean checkHoraOcupada(String fecha, String hora) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"DNI"};
+        String selection = "Fecha=? AND Disponibilidad=?";
+        String[] selectionArgs = {fecha, hora};
+        Cursor cursor = db.query("tbl_citas", columns, selection, selectionArgs, null, null, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count > 0;
+    }
+
+    public boolean verificarCitaExistente(String dni, String fecha) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] columns = {"DNI"};
+        String selection = "DNI=? AND Fecha=?";
+        String[] selectionArgs = {dni, fecha};
+        Cursor cursor = db.query("tbl_citas", columns, selection, selectionArgs, null, null, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count > 0;
     }
 
     public Cursor getdata() {
@@ -59,6 +91,7 @@ public class DbHelperCitas extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT * FROM tbl_citas WHERE DNI=?", new String[]{dni});
     }
+
 
     public boolean eliminarCita(String dni) {
         SQLiteDatabase db = this.getWritableDatabase();

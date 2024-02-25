@@ -1,6 +1,7 @@
 package com.example.aplicacionfinal;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -70,25 +71,54 @@ public class InsertDataCitas extends AppCompatActivity {
                 String Fecha = t7.getText().toString();
                 String Historial = t8.getText().toString();
                 String Cita = "";
+                String HorasOcupadas = "";
 
-                Boolean checkinsertdata = db.insertUserData(DNI, Nombre, Apellidos, Razon, Disponibilidad, Fecha, Cita, Medico, Historial);
-                if (checkinsertdata == true) {
-                    Toast.makeText(InsertDataCitas.this, "Datos insertados", Toast.LENGTH_SHORT).show();
+                int hourOfDay = Integer.parseInt(Disponibilidad.split(":")[0]);
 
-                    t1.setText("");
-                    t2.setText("");
-                    t3.setText("");
-                    t4.setText("");
-                    t5.setText("");
-                    t6.setText("");
-                    t7.setText("");
-                    t8.setText("");
+                // Verificar si la hora seleccionada está dentro del rango permitido
+                if (!isHoraEnRangoPermitido(hourOfDay)) {
+                    Toast.makeText(InsertDataCitas.this, "Selecciona un horario entre las 9:00 y las 21:00", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
+
+                if (db.verificarCitaExistente(DNI, Fecha)) {
+                    Toast.makeText(InsertDataCitas.this, "Ya tienes una cita programada para este día", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(InsertDataCitas.this, "Error", Toast.LENGTH_SHORT).show();
+
+
+                // Verificar si hay datos en todos los campos obligatorios
+                if (DNI.isEmpty() || Nombre.isEmpty() || Apellidos.isEmpty() || Razon.isEmpty() || Medico.isEmpty() || Disponibilidad.isEmpty() || Fecha.isEmpty() || Historial.isEmpty()) {
+                    Toast.makeText(InsertDataCitas.this, "Por favor completa todos los campos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Verificar si la fecha y la hora seleccionadas son válidas
+                if (Fecha.isEmpty() || Disponibilidad.isEmpty()) {
+                    Toast.makeText(InsertDataCitas.this, "Por favor selecciona una fecha y hora válidas", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                boolean horaOcupada = db.checkHoraOcupada(Fecha, Disponibilidad);
+                if (horaOcupada) {
+                    Toast.makeText(InsertDataCitas.this, "La hora seleccionada ya está ocupada para este día", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Insertar los datos en la base de datos
+                    Boolean checkinsertdata = db.insertUserData(DNI, Nombre, Apellidos, Razon, Disponibilidad, Fecha, Cita, Medico, Historial, HorasOcupadas);
+                    if (checkinsertdata) {
+                        Toast.makeText(InsertDataCitas.this, "Datos insertados", Toast.LENGTH_SHORT).show();
+
+                        // Limpiar los EditText
+                        clearEditTexts();
+                    } else {
+                        Toast.makeText(InsertDataCitas.this, "Error", Toast.LENGTH_SHORT).show();
+                    }
+                }
                 }
             }
         });
+
+
 
         ImageView btnbackpage = findViewById(R.id.back);
         btnbackpage.setOnClickListener(new View.OnClickListener() {
@@ -100,8 +130,20 @@ public class InsertDataCitas extends AppCompatActivity {
         });
     }
 
+    private void clearEditTexts() {
+        t1.setText("");
+        t2.setText("");
+        t3.setText("");
+        t4.setText("");
+        t5.setText("");
+        t6.setText("");
+        t7.setText("");
+        t8.setText("");
+
+    }
+
     // Método para mostrar el selector de fecha
-    private void showDatePickerDialog(final EditText editText) {
+    public void showDatePickerDialog(final EditText editText) {
         MaterialDatePicker.Builder<Long> builder = MaterialDatePicker.Builder.datePicker();
         builder.setTitleText("Selecciona una fecha");
 
@@ -118,11 +160,27 @@ public class InsertDataCitas extends AppCompatActivity {
                 // La fecha ha sido seleccionada
                 // `selection` contiene la fecha seleccionada en milisegundos desde la época
                 // Aquí puedes establecer la fecha seleccionada en el EditText
-                editText.setText(materialDatePicker.getHeaderText());
+                editText.setText(formatDate(selection));
             }
         });
 
         materialDatePicker.show(getSupportFragmentManager(), "DATE_PICKER");
+    }
+
+    private static String formatDate(Long milliseconds) {
+        // Formatear la fecha en español
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", new Locale("es", "ES"));
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliseconds);
+        return sdf.format(calendar.getTime());
+    }
+
+    private boolean isHoraEnRangoPermitido(int hourOfDay) {
+        // Definir el rango permitido de horas (desde las 9:00 hasta las 21:00)
+        int startHour = 9;
+        int endHour = 21;
+
+        return hourOfDay >= startHour && hourOfDay <= endHour;
     }
 
 
@@ -138,6 +196,12 @@ public class InsertDataCitas extends AppCompatActivity {
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
                         calendar.set(Calendar.MINUTE, minute);
+
+                        if (!isHoraEnRangoPermitido(hourOfDay)) {
+                            Toast.makeText(InsertDataCitas.this, "Selecciona un horario entre las 9:00 y las 21:00", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
                         updateTimeInView(calendar);
                     }
                 }, hour, minute, true);

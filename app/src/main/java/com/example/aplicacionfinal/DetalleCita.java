@@ -169,7 +169,8 @@ public class DetalleCita extends AppCompatActivity {
         if (marcada) {
             Toast.makeText(this, "Cita marcada como pendiente", Toast.LENGTH_SHORT).show();
             checkboxPendiente.setChecked(true);
-            guardarEstadoCheckBox(true);// Marcar el checkbox como pendiente
+            checkboxPendiente.setEnabled(false); // Deshabilitar el CheckBox
+            guardarEstadoCheckBox(true); // Marcar el checkbox como pendiente
         } else {
             Toast.makeText(this, "Error al marcar la cita como pendiente", Toast.LENGTH_SHORT).show();
         }
