@@ -121,4 +121,5 @@ public class Ser_ubicacion_emergencias extends AppCompatActivity {
             }
         }
     }
+
 }

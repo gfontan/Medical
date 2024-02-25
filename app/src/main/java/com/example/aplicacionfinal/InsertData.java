@@ -63,14 +63,5 @@ public class InsertData extends AppCompatActivity {
             }
         });
 
-
-
-
     }
-
-
-
-
-
-
 }
